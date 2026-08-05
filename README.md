@@ -100,8 +100,8 @@ indian-market-intelligence/
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_REPOSITORY_URL
-cd indian-market-intelligence
+git clone https://github.com/USERNAME/Qode-scrapper.git
+cd Qode-scrapper
 ```
 
 ### 2. Create a virtual environment
