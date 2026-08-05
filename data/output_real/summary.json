@@ -4,9 +4,9 @@
   "overall_signal": 0.064237,
   "overall_label": "neutral",
   "language_counts": {
-    "en_or_romanized": 1298,
-    "hinglish_or_mixed": 30,
-    "hi_or_indic": 2
+    "en_or_romanized": 1898,
+    "hinglish_or_mixed": 102,
+    "hi_or_indic": 10
   },
   "methodology": {
     "text_features": "finance lexicon + negation + manipulation-risk discount",
