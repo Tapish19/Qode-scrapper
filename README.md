@@ -75,7 +75,7 @@ python -m market_intel generate-sample \
 Analyze them:
 
 ```bash
-python -m market_intel analyze --input data/raw/tweets --output data/output_real
+python -m market_intel analyze --input data/raw/tweets --output data/output
 ```
 
 Generated outputs:
@@ -144,9 +144,7 @@ python -m market_intel collect \
 Then analyze:
 
 ```bash
-python -m market_intel analyze \
-  --input data/raw/tweets \
-  --output data/output
+python -m market_intel analyze --input data/raw/tweets --output data/output_real
 ```
 
 The collector stops when it reaches the target, exhausts the configured scroll budget, or repeatedly makes no progress. X's DOM and search behavior can change, so selectors are isolated in one adapter for maintainability.
