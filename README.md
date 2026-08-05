@@ -64,11 +64,11 @@ On Windows, copy `.env.example` manually if `cp` is unavailable.
 
 ## Run the complete pipeline without X access
 
-Generate 2,500 clearly synthetic posts distributed over the last 24 hours:
+Generate 2000 clearly synthetic posts distributed over the last 24 hours:
 
 ```bash
 python -m market_intel generate-sample \
-  --count 2500 \
+  --count 2000 \
   --output data/sample/tweets
 ```
 
@@ -91,7 +91,7 @@ data/output/vectors/tweet-ids-*.json
 
 ## Checked-in sample artifacts
 
-The repository includes a **synthetic** 2,500-row CSV preview and matching analysis outputs so reviewers can inspect results immediately:
+The repository includes a **synthetic** 2000-row CSV preview and matching analysis outputs so reviewers can inspect results immediately:
 
 ```text
 data/sample/tweets_preview.csv
