@@ -24,6 +24,6 @@
 | Confidence intervals | weighted variance and 95% normal-approximation interval |
 | Concurrent processing | bounded `ThreadPoolExecutor` normalizer |
 | 10x scalability | partitioned dataset and documented distributed migration path |
-| Sample outputs | `data/sample/tweets_preview.csv` and `data/output/*` |
+| Checked-in analysis outputs | `data/output_real/summary.json`, `signals_15m.csv`, `signals.png`, and vector artifacts |
 | Automated tests | unit tests and full Parquet integration test |
 | Professional practices | package metadata, CI, Dockerfile, Makefile, environment example, MIT license |
