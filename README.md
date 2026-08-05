@@ -130,6 +130,8 @@ X_SCRAPING_AUTHORIZED=true
 X_CHROME_PROFILE_DIR=C:/Users/YOUR_NAME/selenium-x-profile-v4
 X_CHROME_PROFILE_NAME=Default
 X_HEADLESS=false
+X_SEARCH_QUERIES_FILE=config/search_queries.txt
+
 ```
 
 Run:
