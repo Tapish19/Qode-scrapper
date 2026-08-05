@@ -104,12 +104,25 @@ data/output/signals.png
 
 The production command writes partitioned Parquet to `data/sample/tweets/`. The CSV preview is not used as a substitute for the production storage path; it is only a portable review artifact.
 
-## Authorized Selenium collection
+## Live X Data Collection
 
-1. Obtain any permission required by X and applicable law.
-2. Create a dedicated Chrome profile and sign in manually.
-3. Close Chrome before reusing the same profile from Selenium.
-4. Configure `.env`:
+The production pipeline collects real public X posts related to Indian equity and derivatives markets using Selenium.
+
+The collector does not use:
+
+- Twitter/X API
+- Paid APIs
+- Third-party paid scraping services
+
+The search queries are configured in:
+
+```text
+config/search_queries.txt
+
+1. Create a dedicated Chrome profile and sign in manually.
+2. Close Chrome before reusing the same profile from Selenium.
+3. Configure `.env`:
+4. 
 
 ```dotenv
 X_SCRAPING_AUTHORIZED=true
