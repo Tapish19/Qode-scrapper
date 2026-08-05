@@ -4,8 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-PROFILE_DIR = Path(r"C:\Users\Abhishek\selenium-x-profile-v4")
-
+profile_dir_value = os.getenv("X_CHROME_PROFILE_DIR")
 options = Options()
 options.add_argument(f"--user-data-dir={PROFILE_DIR}")
 options.add_argument("--profile-directory=Default")
