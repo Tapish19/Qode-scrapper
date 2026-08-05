@@ -100,7 +100,7 @@ indian-market-intelligence/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/USERNAME/Qode-scrapper.git
+git clone https://github.com/Tapish19/Qode-scrapper.git
 cd Qode-scrapper
 ```
 
