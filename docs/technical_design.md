@@ -34,7 +34,9 @@ This separation allows the X adapter to be replaced without changing downstream 
 
 ## 3. Collection strategy
 
-The collector opens X's latest-search UI for one hashtag at a time and extracts only rendered posts. A dedicated, manually authenticated Chrome profile is reused. It uses Selenium WebDriver, explicit document readiness checks, bounded page-load retries, bounded scroll counts, and a no-progress circuit breaker.
+The collector opens X's latest-search interface for one configured search query at a time. Queries are loaded from `config/search_queries.txt` and may contain hashtags, keywords, company names, index names, and Hindi or Hinglish market terms.
+
+It extracts only posts rendered in the browser. A dedicated, manually authenticated Chrome profile is reused across collection runs. The collector uses Selenium WebDriver, explicit document-readiness checks, bounded page-load retries, bounded scrolling, and a no-progress circuit breaker to stop a query when repeated scrolling produces no new records.
 
 The implementation deliberately avoids:
 
@@ -168,17 +170,62 @@ JSON logs include timestamp, level, logger, message, attempt, query, count, and 
 - Access to raw posts and browser profiles should be least-privilege.
 - Generated market signals must be labeled as research output, not financial advice.
 
-## 12. Validation approach
+## 12. Validation Approach
 
 The repository includes:
 
 - Unicode normalization tests
-- stable fingerprint test
-- compact engagement-count parser tests
-- bullish/bearish feature tests
-- manipulation-risk discount test
-- recency-weight test
-- SQLite dedupe test
-- full sample-to-Parquet-to-signal-to-vector integration test
+- Stable fingerprint tests
+- Compact engagement-count parser tests
+- Bullish and bearish feature tests
+- Manipulation-risk discount tests
+- Recency-weight tests
+- SQLite deduplication tests
+- Parquet storage tests
+- Signal aggregation tests
+- Sparse-vector artifact tests
+- End-to-end integration tests using temporary generated test data
 
-The checked-in sample data is synthetic and clearly labeled; it is used to make the repository reproducible without violating platform access restrictions.
+The integration tests create isolated temporary records and verify the complete normalization, Parquet storage, signal-generation, and sparse-vector pipeline.
+
+Test fixtures are used only for automated validation and are not presented as real collected X data.
+
+The repository also includes generated analysis artifacts under:
+
+```text
+data/output_real/
+├── signals_15m.csv
+├── summary.json
+├── signals.png
+└── vectors/
+    ├── metadata.json
+    ├── vectors-*.npz
+    └── tweet-ids-*.json
+```
+
+The complete collected dataset remains stored locally as partitioned Parquet under:
+
+```text
+data/raw/tweets/
+```
+
+The following generated values should remain consistent with the actual input dataset:
+
+- Post count in `summary.json`
+- Row count in `vectors/metadata.json`
+- Number of IDs in `tweet-ids-*.json`
+- Number of sparse-vector rows in `vectors-*.npz`
+- Sum of `tweet_count` values in `signals_15m.csv`
+- Sum of language-distribution counts
+
+Run the quality checks with:
+
+```bash
+ruff check .
+pytest
+```
+
+The repository also includes generated analysis artifacts under:
+
+```text
+data/output_real/
