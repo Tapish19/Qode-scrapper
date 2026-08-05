@@ -122,11 +122,10 @@ config/search_queries.txt
 1. Create a dedicated Chrome profile and sign in manually.
 2. Close Chrome before reusing the same profile from Selenium.
 3. Configure `.env`:
-4. 
 
 ```dotenv
 X_SCRAPING_AUTHORIZED=true
-X_CHROME_PROFILE_DIR=C:\Users\YOUR_NAME\AppData\Local\Google\Chrome\User Data
+X_CHROME_PROFILE_DIR=C:/Users/YOUR_NAME/selenium-x-profile-v4
 X_CHROME_PROFILE_NAME=Default
 X_HEADLESS=false
 ```
