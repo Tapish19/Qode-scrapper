@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.env
+.DS_Store
+chromedriver.log
+data/raw/
+data/processed/
+data/state/
+data/output/vectors/

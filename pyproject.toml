@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "indian-market-intelligence"
+version = "1.0.0"
+description = "Memory-efficient social market intelligence pipeline for Indian equities"
+requires-python = ">=3.11"
+readme = "README.md"
+dependencies = [
+  "selenium>=4.29,<5",
+  "pyarrow>=18,<26",
+  "scikit-learn>=1.5,<2",
+  "scipy>=1.13,<2",
+  "matplotlib>=3.9,<4",
+  "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<9", "ruff>=0.9,<1", "mypy>=1.14,<2"]
+
+[project.scripts]
+market-intel = "market_intel.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["market_intel*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_configs = true
+ignore_missing_imports = true
