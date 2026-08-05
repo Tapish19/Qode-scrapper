@@ -118,6 +118,8 @@ The search queries are configured in:
 
 ```text
 config/search_queries.txt
+```
+
 
 1. Create a dedicated Chrome profile and sign in manually.
 2. Close Chrome before reusing the same profile from Selenium.
