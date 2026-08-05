@@ -75,7 +75,7 @@ python -m market_intel generate-sample \
 Analyze them:
 
 ```bash
-python -m market_intel analyze --input data/raw/tweets --output data/output
+python -m market_intel analyze --input data/sample/tweets --output data/output
 ```
 
 Generated outputs:
